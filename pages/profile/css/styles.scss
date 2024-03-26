@@ -1,0 +1,14 @@
+.profile-page {
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    //background-image: url("../../../assets/images/pages/profile/background.png");
+}
+
+.profile {
+    &__container {
+        margin: 0 auto;
+        max-width: 1045px;
+        padding: 0 16px;
+    }
+}

@@ -1,0 +1,142 @@
+html * {
+    font-family: "Roboto";
+}
+
+.header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 20px 85px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    &__logo {
+        display: block;
+        cursor: pointer;
+    }
+
+    &__avatar {
+        p {
+            font-family: "Manrope";
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 27px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            &::after {
+                display: block;
+                width: 12px;
+                height: 15px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                content: "";
+                background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCAxMCAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTQuNTc1NzQgMTQuNDI0M0M0LjgxMDA1IDE0LjY1ODYgNS4xODk5NSAxNC42NTg2IDUuNDI0MjYgMTQuNDI0M0w5LjI0MjY0IDEwLjYwNTlDOS40NzY5NiAxMC4zNzE2IDkuNDc2OTYgOS45OTE2NyA5LjI0MjY0IDkuNzU3MzZDOS4wMDgzMyA5LjUyMzA0IDguNjI4NDMgOS41MjMwNCA4LjM5NDExIDkuNzU3MzZMNSAxMy4xNTE1TDEuNjA1ODkgOS43NTczNkMxLjM3MTU3IDkuNTIzMDQgMC45OTE2NzQgOS41MjMwNCAwLjc1NzM1OSA5Ljc1NzM2QzAuNTIzMDQ1IDkuOTkxNjcgMC41MjMwNDUgMTAuMzcxNiAwLjc1NzM1OSAxMC42MDU5TDQuNTc1NzQgMTQuNDI0M1pNNC40IDIuNjIyNjhlLTA4TDQuNCAxNEw1LjYgMTRMNS42IC0yLjYyMjY4ZS0wOEw0LjQgMi42MjI2OGUtMDhaIiBmaWxsPSJibGFjayIvPgo8L3N2Zz4K);
+            }
+        }
+    }
+}
+
+//Default nulifier
+html {
+    color: #000;
+    background: #fff;
+}
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+    margin: 0;
+    padding: 0;
+}
+fieldset,
+img {
+    border: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+    font-style: normal;
+    font-weight: normal;
+}
+li {
+    list-style: none;
+}
+caption,
+th {
+    text-align: left;
+}
+q:before,
+q:after {
+    content: "";
+}
+abbr,
+acronym {
+    border: 0;
+    font-variant: normal;
+}
+sup {
+    vertical-align: text-top;
+}
+sub {
+    vertical-align: text-bottom;
+}
+input,
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    font-size: 100%;
+}
+legend {
+    color: #000;
+}
+del,
+ins {
+    text-decoration: none;
+}
