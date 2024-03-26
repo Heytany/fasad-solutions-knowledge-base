@@ -1,5 +1,6 @@
-html * {
+html {
     font-family: "Roboto";
+    color: #202020;
 }
 
 .header {
@@ -12,6 +13,7 @@ html * {
     align-items: center;
     justify-content: space-between;
     gap: 20px;
+    background-color: white;
 
     &__logo {
         display: block;
