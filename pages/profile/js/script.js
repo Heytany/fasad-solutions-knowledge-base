@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const header = document.getElementsByTagName("header")[0];
-    document.body.style.paddingTop = `${header.clientHeight}px`;
+    document.body.style.marginTop = `${header.clientHeight}px`;
 
     const status = document.getElementById('status-info');
 
