@@ -28,6 +28,8 @@
 https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js
 "></script>
 <script defer type="text/javascript" src="https://unpkg.com/tabulator-tables/dist/js/tabulator.min.js"></script>
+<script defer src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+
 <script defer src="./js/script.js"></script>
 
 <body class="supervisor-page">
@@ -71,6 +73,7 @@ https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js
                         <option value="plan-b">Без плана</option>
                         <option value="plan-c">Скурил план</option>
                         <option value="plan-d">План?</option>
+                        <option value="plan-f">Требуется контроль</option>
                     </select>
                 </div>
                 <div class="supervisor__select">
@@ -85,6 +88,36 @@ https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js
             </div>
             <div class="supervisor__table">
                 <div id="user-table"></div>
+            </div>
+        </div>
+        <div class="modal micromodal-slide" id="modal-check" aria-hidden="true">
+            <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+                <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+                    <header class="modal__header">
+                        <h2 class="modal__title" id="modal-check-title">
+                            Ваше решение по стажеру <br>
+                            <span></span>
+                        </h2>
+                        <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+                    </header>
+                    <main style="display: none;" class="modal__content" id="modal-check-content">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="20" cy="20" r="16" fill="#BEFFBE" fill-opacity="0.25" />
+                            <path d="M26 16L17.75 24L14 20.3636" stroke="#0DD149" stroke-width="3"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <h2 class="modal__title">
+                            Решение принято
+                        </h2>
+                        <button type="button">Отменить решение 15 с.</button>
+                    </main>
+                    <footer class="modal__footer">
+                        <button id="modal-btn-denie" type="button" class="modal__btn modal__btn-primary"
+                            data-micromodal-close>Увольнение</button>
+                        <button id="modal-btn-ok" type="button" class="modal__btn" data-micromodal-close
+                            aria-label="Close this dialog window">Прием</button>
+                    </footer>
+                </div>
             </div>
         </div>
     </main>

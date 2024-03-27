@@ -228,7 +228,7 @@
 
 .table-button {
     cursor: pointer;
-    padding: 14px 20px;
+    padding: 12px 20px;
     border-radius: 12px;
     font-family: "Roboto";
     font-size: 14px;
@@ -242,6 +242,25 @@
 
     &:hover {
         opacity: 0.9;
+    }
+}
+
+.table-status {
+    padding: 0px 6px;
+    border-radius: 20px;
+    background: #11cb99;
+    color: white;
+    font-family: "Open Sans";
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+    text-align: center;
+    margin: 10px 0;
+    text-transform: uppercase;
+
+    &.bad {
+        background: #f05b5b;
     }
 }
 
@@ -274,6 +293,7 @@
     &-row {
         border-radius: 8px;
         background: white !important;
+        margin: 8px 0;
     }
 
     &-footer {
@@ -305,6 +325,8 @@
         min-height: 50px;
         min-width: 50px;
         border: 0 !important;
+        background: white !important;
+        color: #171d23 !important;
 
         &.active {
             background: #1e98ff !important;
@@ -313,7 +335,13 @@
 
         &:disabled {
             background: #f5f5f5 !important;
-            color: #202020 !important;
+            color: #171d23 !important;
+            box-shadow: 0px 0px 0px 2px white inset;
+        }
+
+        svg {
+            position: relative;
+            top: 3px;
         }
     }
 
@@ -328,5 +356,15 @@
 
     &-header &-col &-col-content &-col-title-holder &-col-sorter {
         position: relative;
+    }
+
+    &-paginator {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+    }
+
+    .important {
+        background: #f5a71f0f !important;
     }
 }
