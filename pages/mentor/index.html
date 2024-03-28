@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/base.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+
+    <link href="https://unpkg.com/tabulator-tables/dist/css/tabulator.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<script defer src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+<script defer src="
+https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js
+"></script>
+<script defer type="text/javascript" src="https://unpkg.com/tabulator-tables/dist/js/tabulator.min.js"></script>
+
+<script defer src="./js/script.js"></script>
+
+<body class="supervisor-page">
+    <header class="header">
+        <a class="header__logo" href="#">
+            <img src="../../assets/images/logo.svg" alt="logo">
+        </a>
+        <div class="header__avatar">
+            <p>Иванов Иван</p>
+        </div>
+    </header>
+    <main class="supervisor">
+        <div class="supervisor__container">
+            <div class="supervisor__title">
+                <h1>
+                    Мои стажеры
+                </h1>
+                <div class="supervisor__tabs">
+                    <button data-tab id="active-users" type="button">
+                        Активные (45)
+                    </button>
+                    <button class="unactive" data-tab id="unactive-users" type="button">
+                        Завершенные
+                    </button>
+                </div>
+            </div>
+            <div class="supervisor__search">
+                <input id="user-name" placeholder="Поиск по фамилии стажера/наставника" type="search">
+                <button id="user-name-btn" type="button"><svg width="16" height="18" viewBox="0 0 16 18" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M14.5003 15.448L10.7243 11.2188C11.6317 9.99877 12.0842 8.43386 11.9876 6.84966C11.8911 5.26546 11.2529 3.78393 10.2059 2.71328C9.15892 1.64263 7.78367 1.06529 6.36628 1.10136C4.94889 1.13743 3.59848 1.78414 2.59597 2.90694C1.59347 4.02975 1.01605 5.54221 0.983845 7.12969C0.951639 8.71717 1.46712 10.2574 2.42306 11.4301C3.379 12.6027 4.70179 13.3175 6.11625 13.4256C7.53072 13.5337 8.92796 13.027 10.0173 12.0107L13.7933 16.2398L14.5003 15.448ZM2.0003 7.27979C2.0003 6.28297 2.26422 5.30854 2.75869 4.47972C3.25316 3.65089 3.95596 3.0049 4.77823 2.62344C5.60049 2.24197 6.50529 2.14216 7.37821 2.33663C8.25112 2.5311 9.05295 3.01112 9.68228 3.71597C10.3116 4.42083 10.7402 5.31887 10.9138 6.29654C11.0875 7.2742 10.9984 8.28758 10.6578 9.20852C10.3172 10.1295 9.74039 10.9166 9.00037 11.4704C8.26035 12.0242 7.39032 12.3198 6.5003 12.3198C5.30723 12.3183 4.16341 11.7868 3.31978 10.842C2.47616 9.89711 2.00163 8.61603 2.0003 7.27979Z"
+                            fill="white" stroke="white" />
+                    </svg>
+                </button>
+                <i id="user-name-notion" style="opacity: 0;">Для фильтрации введите 3 и более символов в поисковую
+                    строку, фильтры поиска сброшены</i>
+            </div>
+            <div class="supervisor__selects">
+                <div class="supervisor__select">
+                    <select id="user-status" multiple name="user-status">
+                        <option value="plan-a">По плану</option>
+                        <option value="plan-b">Без плана</option>
+                        <option value="plan-c">Скурил план</option>
+                        <option value="plan-d">План?</option>
+                        <option value="plan-f">Требуется контроль</option>
+                    </select>
+                </div>
+                <div class="supervisor__select">
+                    <select id="user-period" multiple name="user-period">
+                        <option value="date-a">01.08.2023 - 08.04.2024</option>
+                        <option value="date-b">01.04.2023 - 08.04.2023</option>
+                        <option value="date-c">01.01.2023 - 08.04.2023</option>
+                    </select>
+                </div>
+            </div>
+            <div data-filter-panel class="supervisor__filter-panel">
+            </div>
+            <div class="supervisor__table">
+                <div id="user-table"></div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -20,6 +20,18 @@
         margin-bottom: 24px;
     }
 
+    &__rating {
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        bottom: -20px;
+
+        img {
+            width: 90px;
+            height: 90px;
+        }
+    }
+
     &__container {
         margin: 0 auto;
         max-width: 1045px;
@@ -36,7 +48,9 @@
     }
 
     &__photo {
-        img {
+        position: relative;
+
+        &-img {
             display: block;
             height: 181px;
             width: 181px;
@@ -45,17 +59,17 @@
             border-radius: 50%;
         }
 
-        &.blue img {
+        &.blue &-img {
             box-shadow: 1px 1px 11px 6px rgba(0, 209, 255, 0.42);
             border-color: #a9d7ff;
         }
 
-        &.green img {
+        &.green &-img {
             box-shadow: 1px 1px 11px 6px rgb(30, 255, 174);
             border-color: #00e569;
         }
 
-        &.yellow img {
+        &.yellow &-img {
             box-shadow: 1px 1px 11px 6px rgb(236, 255, 11);
             border-color: #faff1e;
         }
@@ -67,19 +81,6 @@
             line-height: 37px;
             font-weight: 500;
             margin-bottom: 8px;
-        }
-
-        div {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-
-            span {
-                font-size: 16px;
-                line-height: 18px;
-                font-weight: 500;
-            }
         }
     }
 
@@ -201,30 +202,85 @@
             max-height: 189px;
             max-width: 323px;
         }
+    }
+}
 
-        .progress-bar {
-            position: relative;
-            border-radius: 100px;
-            background-color: #f4fcff;
-            overflow: hidden;
-            height: 4px;
-            margin-top: 9px;
-            hr {
-                width: 0;
-                margin: 0;
-                height: inherit;
-                border: 0;
-                background-color: #1e98ff;
-                position: absolute;
-            }
+.progress-bar {
+    position: relative;
+    border-radius: 100px;
+    background-color: #f4fcff;
+    overflow: hidden;
+    height: 4px;
+    margin-top: 9px;
+    hr {
+        width: 0;
+        margin: 0;
+        height: inherit;
+        border: 0;
+        background-color: #1e98ff;
+        position: absolute;
+    }
 
-            &.full {
-                background-color: #2fd215;
+    &.full {
+        background-color: #2fd215;
 
-                hr {
-                    display: none;
-                }
-            }
+        hr {
+            display: none;
         }
     }
+}
+
+.tippy-box {
+    background-color: white;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow:
+        5px 5px 15px 0px #e6edf3,
+        5px -5px 10px 0px #e6e6e633,
+        -5px 5px 10px 0px #e6e6e633;
+
+    b {
+        font-family: "Open Sans";
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 20px;
+        text-align: left;
+        color: black;
+    }
+
+    span {
+        font-family: Open Sans;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 20px;
+        text-align: left;
+        color: #686d81;
+    }
+
+    .progress-bar {
+        margin: 12px 0;
+    }
+
+    p {
+        margin: 0;
+        font-family: "Open Sans";
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        text-align: left;
+        color: black;
+    }
+}
+
+.tippy-box[data-placement^="top"] > .tippy-arrow::before {
+    border-top-color: white;
+}
+.tippy-box[data-placement^="bottom"] > .tippy-arrow::before {
+    border-bottom-color: white;
+}
+.tippy-box[data-placement^="left"] > .tippy-arrow::before {
+    border-left-color: white;
+}
+.tippy-box[data-placement^="right"] > .tippy-arrow::before {
+    border-right-color: white;
 }
