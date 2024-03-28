@@ -51,19 +51,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const inputSearch = document.querySelector("#user-name");
     const inputSearchBtn = document.querySelector("#user-name-btn");
+    const inputSearchNotion = document.querySelector("#user-name-notion");
+
+    function toggleNotion() {
+        inputSearchNotion.style.opacity = 1;
+        setTimeout(() => inputSearchNotion.style.opacity = 0, 1000);
+    }
+
     inputSearch.addEventListener("keypress", function (event) {
         if (event.key === "Enter" && this.value.length >= 3) {
             filterApplying();
-        } else {
-            table.clearFilter();
+        } else if (this.value.length < 3 && event.key === "Enter") {
+            toggleNotion();
         }
     });
 
-    inputSearchBtn.addEventListener("click", function (event) {
-        if (event.key === "Enter" && inputSearch.value.length >= 3) {
+    inputSearchBtn.addEventListener("click", function () {
+        if (inputSearch.value.length >= 3) {
             filterApplying();
         } else {
-            table.clearFilter();
+            toggleNotion();
         }
     });
 
@@ -166,8 +173,8 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     const tabledata = [
-        { id: 1, id_work: 0, active: true, status_id: 'plan-a', date_id: 'date-a', name: "Христорожденственкий Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.08.2023", end: "08.04.2024", status: "По плану" },
         { id: 2, id_work: 1, active: true, status_id: 'plan-b', date_id: 'date-b', name: "Бипов Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.04.2023", end: "08.04.2023", status: "Без плана" },
+        { id: 1, id_work: 0, active: true, status_id: 'plan-a', date_id: 'date-a', name: "Христорожденственкий Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.08.2023", end: "08.04.2024", status: "По плану" },
         { id: 3, id_work: 2, active: true, status_id: 'plan-f', date_id: 'date-c', name: "Слипов Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.01.2023", end: "08.04.2023", status: "Требуется контроль" },
         { id: 1, id_work: 0, active: true, status_id: 'plan-f', date_id: 'date-a', name: "Христорожденственкий Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.08.2023", end: "08.04.2024", status: "Требуется контроль" },
         { id: 2, id_work: 1, active: true, status_id: 'plan-f', date_id: 'date-b', name: "Бипов Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.04.2023", end: "08.04.2023", status: "Требуется контроль" },
@@ -187,11 +194,32 @@ document.addEventListener("DOMContentLoaded", () => {
         { id: 1, id_work: 1, active: true, status_id: 'plan-a', date_id: 'date-a', name: "Христорожденственкий Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.08.2023", end: "08.04.2024", status: "По плану" },
         { id: 2, id_work: 0, active: true, status_id: 'plan-b', date_id: 'date-b', name: "Бипов Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.04.2023", end: "08.04.2023", status: "Без плана" },
         { id: 3, id_work: 1, active: true, status_id: 'plan-c', date_id: 'date-c', name: "Слипов Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.01.2023", end: "08.04.2023", status: "Скурил план" },
-        { id: 1, id_work: 0, active: true, status_id: 'plan-a', date_id: 'date-a', name: "Христорожденственкий Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.08.2023", end: "08.04.2024", status: "По плану" },
-        { id: 2, id_work: 0, active: true, status_id: 'plan-b', date_id: 'date-b', name: "Бипов Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.04.2023", end: "08.04.2023", status: "Без плана" },
+        { id: 1, id_work: 1, active: false, status_id: 'plan-a', date_id: 'date-a', name: "Христорожденственкий Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.08.2023", end: "08.04.2024", status: "По плану" },
+        { id: 2, id_work: 1, active: false, status_id: 'plan-b', date_id: 'date-b', name: "Бипов Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.04.2023", end: "08.04.2023", status: "Без плана" },
+        { id: 1, id_work: 1, active: false, status_id: 'plan-a', date_id: 'date-a', name: "Христорожденственкий Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.08.2023", end: "08.04.2024", status: "По плану" },
+        { id: 2, id_work: 1, active: false, status_id: 'plan-b', date_id: 'date-b', name: "Бипов Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.04.2023", end: "08.04.2023", status: "Без плана" },
+        { id: 3, id_work: 1, active: false, status_id: 'plan-f', date_id: 'date-c', name: "Слипов Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.01.2023", end: "08.04.2023", status: "Требуется контроль" },
+        { id: 1, id_work: 1, active: false, status_id: 'plan-f', date_id: 'date-a', name: "Христорожденственкий Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.08.2023", end: "08.04.2024", status: "Требуется контроль" },
+        { id: 2, id_work: 1, active: false, status_id: 'plan-f', date_id: 'date-b', name: "Бипов Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.04.2023", end: "08.04.2023", status: "Требуется контроль" },
+        { id: 3, id_work: 1, active: false, status_id: 'plan-c', date_id: 'date-c', name: "Слипов Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.01.2023", end: "08.04.2023", status: "Скурил план" },
+        { id: 1, id_work: 1, active: false, status_id: 'plan-a', date_id: 'date-a', name: "Христорожденственкий Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.08.2023", end: "08.04.2024", status: "По плану" },
+        { id: 2, id_work: 2, active: false, status_id: 'plan-b', date_id: 'date-b', name: "Бипов Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.04.2023", end: "08.04.2023", status: "Без плана" },
+        { id: 3, id_work: 2, active: false, status_id: 'plan-c', date_id: 'date-c', name: "Слипов Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.01.2023", end: "08.04.2023", status: "Скурил план" },
+        { id: 1, id_work: 2, active: false, status_id: 'plan-a', date_id: 'date-a', name: "Христорожденственкий Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.08.2023", end: "08.04.2024", status: "По плану" },
+        { id: 2, id_work: 2, active: false, status_id: 'plan-b', date_id: 'date-b', name: "Бипов Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.04.2023", end: "08.04.2023", status: "Без плана" },
+        { id: 3, id_work: 2, active: false, status_id: 'plan-c', date_id: 'date-c', name: "Слипов Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.01.2023", end: "08.04.2023", status: "Скурил план" },
+        { id: 1, id_work: 2, active: false, status_id: 'plan-a', date_id: 'date-a', name: "Христорожденственкий Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.08.2023", end: "08.04.2024", status: "По плану" },
+        { id: 2, id_work: 2, active: false, status_id: 'plan-b', date_id: 'date-b', name: "Бипов Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.04.2023", end: "08.04.2023", status: "Без плана" },
+        { id: 3, id_work: 2, active: false, status_id: 'plan-c', date_id: 'date-c', name: "Слипов Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.01.2023", end: "08.04.2023", status: "Скурил план" },
+        { id: 1, id_work: 2, active: false, status_id: 'plan-a', date_id: 'date-a', name: "Христорожденственкий Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.08.2023", end: "08.04.2024", status: "По плану" },
+        { id: 2, id_work: 2, active: false, status_id: 'plan-b', date_id: 'date-b', name: "Бипов Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.04.2023", end: "08.04.2023", status: "Без плана" },
+        { id: 3, id_work: 2, active: false, status_id: 'plan-c', date_id: 'date-c', name: "Слипов Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.01.2023", end: "08.04.2023", status: "Скурил план" },
+        { id: 1, id_work: 2, active: false, status_id: 'plan-a', date_id: 'date-a', name: "Христорожденственкий Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.08.2023", end: "08.04.2024", status: "По плану" },
+        { id: 2, id_work: 2, active: false, status_id: 'plan-b', date_id: 'date-b', name: "Бипов Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.04.2023", end: "08.04.2023", status: "Без плана" },
+        { id: 3, id_work: 2, active: false, status_id: 'plan-c', date_id: 'date-c', name: "Слипов Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.01.2023", end: "08.04.2023", status: "Скурил план" },
+        { id: 1, id_work: 2, active: false, status_id: 'plan-a', date_id: 'date-a', name: "Христорожденственкий Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.08.2023", end: "08.04.2024", status: "По плану" },
+        { id: 2, id_work: 2, active: false, status_id: 'plan-b', date_id: 'date-b', name: "Бипов Андрей Иванович", mentorName: "Христорожденственкий А. И.", start: "01.04.2023", end: "08.04.2023", status: "Без плана" },
     ];
-
-
 
     const BtnFunction = function (cell) {
         switch (cell.getData().id_work) {

@@ -73,6 +73,15 @@
             -webkit-appearance: none;
         }
 
+        i {
+            position: absolute;
+            top: -20px;
+            left: 8px;
+            font-size: 12px;
+            color: #f05b5b;
+            transition: opacity 300ms ease-in-out;
+        }
+
         button {
             position: absolute;
             display: flex;
