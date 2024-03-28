@@ -24,12 +24,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    function filterApplying() {
+    function filterApplying(eraseSearch = false) {
         const arrayFilters = [];
 
         arrayFilters.push({ field: "active", type: "=", value: userActive })
 
-        if (inputSearch.value.length >= 3) {
+        if (inputSearch.value.length >= 3 && !eraseSearch) {
             arrayFilters.push({ field: customFilterNames, type: { value: inputSearch.value } })
         }
 
@@ -54,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const inputSearchNotion = document.querySelector("#user-name-notion");
 
     function toggleNotion() {
+        filterApplying(true);
         inputSearchNotion.style.opacity = 1;
         setTimeout(() => inputSearchNotion.style.opacity = 0, 1000);
     }
