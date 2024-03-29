@@ -191,6 +191,10 @@
         }
     }
 
+    &[data-type*="select-one"]:after {
+        content: none;
+    }
+
     &__inner {
         position: relative;
         border-radius: 8px;

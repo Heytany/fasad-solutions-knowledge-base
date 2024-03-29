@@ -79,10 +79,18 @@ https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js
                     </select>
                 </div>
                 <div class="supervisor__select">
-                    <select id="user-period" multiple name="user-period">
-                        <option value="date-a">01.08.2023 - 08.04.2024</option>
-                        <option value="date-b">01.04.2023 - 08.04.2023</option>
-                        <option value="date-c">01.01.2023 - 08.04.2023</option>
+                    <select id="user-period-start" placeholder="Начало" name="user-period-start">
+                        <option value="" selected placeholder>Начало</option>
+                        <option value="01.08.2023">01.08.2023</option>
+                        <option value="01.04.2023">01.04.2023</option>
+                        <option value="01.01.2023">01.01.2023</option>
+                    </select>
+                </div>
+                <div class="supervisor__select">
+                    <select id="user-period-stop" name="user-period-stop">
+                        <option value="" selected disabled placeholder>Окончание</option>
+                        <option value="08.04.2023">08.04.2023</option>
+                        <option value="12.04.2023">12.04.2023</option>
                     </select>
                 </div>
             </div>
