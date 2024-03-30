@@ -19,6 +19,7 @@
 </head>
 <script defer src="https://unpkg.com/@popperjs/core@2"></script>
 <script defer src="https://unpkg.com/tippy.js@6"></script>
+<script defer src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
 <script defer src="./js/script.js"></script>
 
 <body class="profile-page">
@@ -65,7 +66,7 @@
                 <h1>
                     Программа курса
                 </h1>
-                <a href="#" class="profile__course">
+                <a data-micromodal-trigger="modal-theme-1" class="profile__course">
                     <div class="profile__course-data">
                         <h2>Сведения о компании</h2>
                         <div>
@@ -98,7 +99,7 @@
                     </div>
                     <img src="../../assets/images/pages/profile/item-1.png" alt="course-photo">
                 </a>
-                <a href="#" class="profile__course">
+                <a data-micromodal-trigger="modal-theme-2" class="profile__course">
                     <div class="profile__course-data">
                         <h2>Услуги компании</h2>
                         <div>
@@ -125,7 +126,7 @@
                     </div>
                     <img src="../../assets/images/pages/profile/item-2.png" alt="course-photo">
                 </a>
-                <a href="#" class="profile__course">
+                <a data-micromodal-trigger="modal-theme-3" class="profile__course">
                     <div class="profile__course-data">
                         <h2>Организация: структура и культура</h2>
                         <div>
@@ -152,7 +153,7 @@
                     </div>
                     <img src="../../assets/images/pages/profile/item-1.png" alt="course-photo">
                 </a>
-                <a href="#" class="profile__course">
+                <a data-micromodal-trigger="modal-theme-4" class="profile__course">
                     <div class="profile__course-data">
                         <h2>Специализация</h2>
                         <div>
@@ -179,7 +180,7 @@
                     </div>
                     <img src="../../assets/images/pages/profile/item-2.png" alt="course-photo">
                 </a>
-                <a href="#" class="profile__course">
+                <a data-micromodal-trigger="modal-theme-5" class="profile__course">
                     <div class="profile__course-data">
                         <h2>Организация: структура и культура</h2>
                         <div>
@@ -206,6 +207,231 @@
                     </div>
                     <img src="../../assets/images/pages/profile/item-2.png" alt="course-photo">
                 </a>
+            </div>
+        </div>
+        <div class="modal micromodal-slide" id="modal-theme-1" aria-hidden="true">
+            <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+                <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-theme-1-title">
+                    <header class="modal__header">
+                        <h2 class="modal__title modal__title--profile">
+                            Сведения о компании
+                        </h2>
+                        <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+                    </header>
+                    <main class="modal__content modal__content--profile">
+                        <div style="background:#ECEEEE;" class="progress-bar">
+                            <hr style="width:46%; background: #1E98FF;">
+                        </div>
+
+                        <div class="theme-container">
+                            <a href="#" class="theme-container__item">
+                                <span>1. История создании компании</span>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="10" cy="10" r="8" fill="#EEFCF2" />
+                                    <path d="M13 8L8.875 12L7 10.1818" stroke="#0DD149" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </a>
+                            <a href="#" class="theme-container__item">
+                                <span>2. Миссия и ценности</span>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="10" cy="10" r="8" fill="#EEFCF2" />
+                                    <path d="M13 8L8.875 12L7 10.1818" stroke="#0DD149" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </a>
+                            <a href="#" class="theme-container__item">
+                                <span>3. Клиенты и партнеры</span>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="10" cy="10" r="8" fill="#EEFCF2" />
+                                    <path d="M13 8L8.875 12L7 10.1818" stroke="#0DD149" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </a>
+                            <div class="theme-container__item selected">
+                                <span>4. Стратегические цели на год</span>
+                            </div>
+                            <a href="#" class="theme-container__item">
+                                <span>Тест по теме</span>
+                            </a>
+                        </div>
+                    </main>
+                </div>
+            </div>
+        </div>
+        <div class="modal micromodal-slide" id="modal-theme-2" aria-hidden="true">
+            <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+                <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-theme-2-title">
+                    <header class="modal__header">
+                        <h2 class="modal__title modal__title--profile">
+                            Услуги компании
+                        </h2>
+                        <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+                    </header>
+                    <main class="modal__content modal__content--profile modal__content--profile-notion">
+                        <i class="notion fail">Просрочен на 2 дня</i>
+
+                        <div class="theme-container">
+                            <a href="#" class="theme-container__item">
+                                <span>1. Услуги компании</span>
+                            </a>
+                            <a href="#" class="theme-container__item">
+                                <span>2. Наши преимущества</span>
+                            </a>
+                            <a href="#" class="theme-container__item">
+                                <span>3. Технология построения отношений с клиентами</span>
+                            </a>
+                            <a href="#" class="theme-container__item">
+                                <span>Тест по теме</span>
+                            </a>
+                        </div>
+                    </main>
+                </div>
+            </div>
+        </div>
+        <div class="modal micromodal-slide" id="modal-theme-3" aria-hidden="true">
+            <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+                <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-theme-3-title">
+                    <header class="modal__header">
+                        <h2 class="modal__title modal__title--profile">
+                            Услуги компании
+                        </h2>
+                        <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+                    </header>
+                    <main class="modal__content modal__content--profile modal__content--profile-notion">
+                        <i class="notion">нужно сделать до 21 января</i>
+
+                        <div class="theme-container">
+                            <a href="#" class="theme-container__item">
+                                <span>1. Структура компании</span>
+                            </a>
+                            <a href="#" class="theme-container__item">
+                                <span>2. Основные положения</span>
+                            </a>
+                            <a href="#" class="theme-container__item">
+                                <span>3. Значимые для компании торжества</span>
+                            </a>
+                            <a href="#" class="theme-container__item">
+                                <span>4. Плюшки компании</span>
+                            </a>
+                            <a href="#" class="theme-container__item">
+                                <span>5. Профессиональное развитие</span>
+                            </a>
+                            <a href="#" class="theme-container__item">
+                                <span>Тест по теме</span>
+                            </a>
+                        </div>
+                    </main>
+                </div>
+            </div>
+        </div>
+        <div class="modal micromodal-slide" id="modal-theme-4" aria-hidden="true">
+            <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+                <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-theme-4-title">
+                    <header class="modal__header">
+                        <h2 class="modal__title modal__title--profile">
+                            Специализация
+                        </h2>
+                        <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+                    </header>
+                    <main class="modal__content modal__content--profile">
+                        <div style="background:#ECEEEE;" class="progress-bar">
+                            <hr style="width:46%; background: #1E98FF;">
+                        </div>
+
+                        <div class="theme-container">
+                            <div class="theme-container__item">
+                                <span>1. История создании компании</span>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="10" cy="10" r="8" fill="#EEFCF2" />
+                                    <path d="M13 8L8.875 12L7 10.1818" stroke="#0DD149" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="theme-container__item">
+                                <span>2. Миссия и ценности</span>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="10" cy="10" r="8" fill="#EEFCF2" />
+                                    <path d="M13 8L8.875 12L7 10.1818" stroke="#0DD149" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="theme-container__item">
+                                <span>3. Клиенты и партнеры</span>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="10" cy="10" r="8" fill="#EEFCF2" />
+                                    <path d="M13 8L8.875 12L7 10.1818" stroke="#0DD149" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="theme-container__item selected">
+                                <span>4. Стратегические цели на год</span>
+                            </div>
+                            <div class="theme-container__item">
+                                <span>Тест по теме</span>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            </div>
+        </div>
+        <div class="modal micromodal-slide" id="modal-theme-5" aria-hidden="true">
+            <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+                <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-theme-5-title">
+                    <header class="modal__header">
+                        <h2 class="modal__title modal__title--profile">
+                            Организация: структура и культура
+                        </h2>
+                        <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+                    </header>
+                    <main class="modal__content modal__content--profile">
+                        <div style="background:#ECEEEE;" class="progress-bar">
+                            <hr style="width:46%; background: #1E98FF;">
+                        </div>
+
+                        <div class="theme-container">
+                            <div class="theme-container__item">
+                                <span>1. История создании компании</span>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="10" cy="10" r="8" fill="#EEFCF2" />
+                                    <path d="M13 8L8.875 12L7 10.1818" stroke="#0DD149" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="theme-container__item">
+                                <span>2. Миссия и ценности</span>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="10" cy="10" r="8" fill="#EEFCF2" />
+                                    <path d="M13 8L8.875 12L7 10.1818" stroke="#0DD149" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="theme-container__item">
+                                <span>3. Клиенты и партнеры</span>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="10" cy="10" r="8" fill="#EEFCF2" />
+                                    <path d="M13 8L8.875 12L7 10.1818" stroke="#0DD149" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="theme-container__item selected">
+                                <span>4. Стратегические цели на год</span>
+                            </div>
+                            <div class="theme-container__item">
+                                <span>Тест по теме</span>
+                            </div>
+                        </div>
+                    </main>
+                </div>
             </div>
         </div>
     </main>

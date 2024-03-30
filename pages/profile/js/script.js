@@ -66,4 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
         content: statusContent,
         allowHTML: true,
     });
+
+    MicroModal.init();
 });
