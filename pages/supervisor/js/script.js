@@ -304,16 +304,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
         function submitUserStatus(answer = 0) {
             console.log(window.userDataBuffer)
+            const modalSelector = document.getElementById('modal-check');
+            const timerBtn = document.querySelector('#modal-btn-refuse span');
+            timerBtn.textContent = 15;
+
+            function timerAndVisualsRefuse() {
+                let timeleft = 15;
+
+                modalSelector.querySelector('header').style.display = 'none';
+                modalSelector.querySelector('main').style.display = 'block';
+                modalSelector.querySelector('footer').style.display = 'none';
+                window.rollbackTimer = setInterval(function () {
+                    if (timeleft <= 0) {
+                        clearInterval(window.rollbackTimer);
+                        timerBtn.textContent = 0;
+                        MicroModal.close('modal-check');
+                    }
+                    timerBtn.textContent = timeleft;
+                    timeleft -= 1;
+                }, 1000);
+            }
+
+
 
             switch (answer) {
                 case 1:
-                    alert('Вы успешно наняли сотрудника');
+                    //alert('Вы успешно наняли сотрудника');
+                    timerAndVisualsRefuse();
                     break;
                 case 2:
-                    alert('Вы успешно отменили действие');
+                    //alert('Вы успешно отменили действие');
+                    modalSelector.querySelector('header').style.display = 'block';
+                    modalSelector.querySelector('main').style.display = 'none';
+                    modalSelector.querySelector('footer').style.display = 'flex';
+                    clearInterval(window.rollbackTimer);
                     break;
                 default:
-                    alert('Вы успешно уволили сотрудника');
+                    //alert('Вы успешно уволили сотрудника');
+                    timerAndVisualsRefuse();
             }
         }
 
@@ -418,13 +446,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (!hasBeenCalled) {
                     const btnOk = document.querySelector('#modal-btn-ok');
                     const btnDenie = document.querySelector('#modal-btn-denie');
+                    const btnRefuse = document.querySelector('#modal-btn-refuse');
 
                     btnOk.addEventListener("click", () => {
                         submitUserStatus(1);
                     });
+                    btnRefuse.addEventListener("click", () => {
+                        submitUserStatus(2);
+                    });
                     btnDenie.addEventListener("click", () => {
                         submitUserStatus(0);
                     });
+
 
                     hasBeenCalled = true;
                 }
@@ -442,7 +475,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 select.style.visibility = 'hidden';
             }
 
-            MicroModal.init();
+            MicroModal.init(
+                {
+                    onShow: modal => {
+                        const modalSelector = document.getElementById(modal.id);
+                        modalSelector.querySelector('header').style.display = 'block';
+                        modalSelector.querySelector('main').style.display = 'none';
+                        modalSelector.querySelector('footer').style.display = 'flex';
+                    },
+                    onClose: () => window?.rollbackTimer ? clearInterval(window.rollbackTimer) : null
+                }
+            );
+
+            document.querySelectorAll('[data-micromodal-trigger="modal-check"]').forEach((element) => element.removeAttribute('data-micromodal-trigger'));
+
             callOnce();
         })
     }
