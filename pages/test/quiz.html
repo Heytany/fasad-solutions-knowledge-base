@@ -174,25 +174,33 @@
         text-align: left;
         color: #111;
         transition: all 100ms ease-in-out;
+        border: 1px solid #F5F5F5;
     }
 
     .button_selected,
     .button:hover,
     .button:active {
         background: #F4FCFF;
+        border-color: #1e98ff;
     }
 
     .button_wrong {
         background: #EB6465;
+        color: white;
+        border-color: #B3B3B3;
     }
 
     .button_correct {
         background: #5EB97D;
+        color: white;
+        border-color: #B3B3B3;
     }
 
     .button_passive {
         background: #B3B3B3;
+        border-color: #B3B3B3;
         color: white;
+        pointer-events: none;
     }
 
     .score {
