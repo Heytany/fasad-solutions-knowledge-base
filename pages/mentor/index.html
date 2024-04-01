@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
 
     <link href="https://unpkg.com/tabulator-tables/dist/css/tabulator.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="../../assets/css/styles.css">
     <link rel="stylesheet" href="./css/styles.css">
@@ -28,6 +29,7 @@
 https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js
 "></script>
 <script defer type="text/javascript" src="https://unpkg.com/tabulator-tables/dist/js/tabulator.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.js"></script>
 
 <script defer src="./js/script.js"></script>
 
@@ -77,6 +79,7 @@ https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js
                         <option value="plan-f">Требуется контроль</option>
                     </select>
                 </div>
+                <!-- 
                 <div class="supervisor__select">
                     <select id="user-period-start" placeholder="Начало" name="user-period-start">
                         <option value="" selected placeholder>Начало</option>
@@ -92,8 +95,19 @@ https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js
                         <option value="12.04.2023">12.04.2023</option>
                     </select>
                 </div>
+                -->
             </div>
             <div data-filter-panel class="supervisor__filter-panel">
+            </div>
+            <div class="supervisor__dates">
+                <div id="datepicker-start-btn" class="supervisor__picker">
+                    <label for="datepicker-start">Начало</label>
+                    <input placeholder="дата" id="datepicker-start" type="text">
+                </div>
+                <div id="datepicker-end-btn" class="supervisor__picker">
+                    <label for="datepicker-end">Окончание</label>
+                    <input placeholder="дата" id="datepicker-end" type="text">
+                </div>
             </div>
             <div class="supervisor__table">
                 <div id="user-table"></div>

@@ -41,8 +41,12 @@ document.addEventListener("DOMContentLoaded", () => {
     function customFilterDateStart(data, filterParams) {
         //data - the data for the row being filtered
         //filterParams - params object passed to the filter
-        let date1 = Date.parse(filterParams.value);
-        let date2 = Date.parse(data.start);
+
+        let dateArr1 = filterParams.value.split('.');
+        let dateArr2 = data.start.split('.');
+
+        let date1 = Date.parse(new Date(dateArr1[2], dateArr1[1], dateArr1[0]));
+        let date2 = Date.parse(new Date(dateArr2[2], dateArr2[1], dateArr2[0]));
 
         return date1 <= date2;
     }
@@ -50,15 +54,18 @@ document.addEventListener("DOMContentLoaded", () => {
     function customFilterDateEnd(data, filterParams) {
         //data - the data for the row being filtered
         //filterParams - params object passed to the filter
-        let date1 = Date.parse(filterParams.value);
-        let date2 = Date.parse(data.end);
+        let dateArr1 = filterParams.value.split('.');
+        let dateArr2 = data.end.split('.');
+
+        let date1 = Date.parse(new Date(dateArr1[2], dateArr1[1], dateArr1[0]));
+        let date2 = Date.parse(new Date(dateArr2[2], dateArr2[1], dateArr2[0]));
 
         return date1 >= date2;
     }
 
     function filterApplying(eraseSearch = false) {
-        const dateStart = document.getElementById('user-period-start');
-        const dateEnd = document.getElementById('user-period-stop');
+        //const dateStart = document.getElementById('user-period-start');
+        //const dateEnd = document.getElementById('user-period-stop');
         const arrayFilters = [];
 
         arrayFilters.push({ field: "active", type: "=", value: userActive })
@@ -67,8 +74,14 @@ document.addEventListener("DOMContentLoaded", () => {
             arrayFilters.push({ field: customFilterNames, type: { value: inputSearch.value } });
         }
 
+        /*
         dateStart.value ? arrayFilters.push({ field: customFilterDateStart, type: { value: dateStart.value } }) : null;
         dateEnd.value ? arrayFilters.push({ field: customFilterDateEnd, type: { value: dateEnd.value } }) : null;
+        */
+
+        datePicker.getDate() ? arrayFilters.push({ field: customFilterDateStart, type: { value: datePicker.getFormatedDate() } }) : null;
+        datePickerEnd.getDate() ? arrayFilters.push({ field: customFilterDateEnd, type: { value: datePickerEnd.getFormatedDate() } }) : null;
+
         arrayFilters.push({ field: "status_id", type: "keywords", value: getSelectedValues(document.getElementById('user-status')) });
 
         table.setFilter(arrayFilters);
@@ -96,6 +109,47 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    const datePicker = MCDatepicker.create({
+        el: '#datepicker-start',
+        bodyType: 'modal',
+        dateFormat: 'dd.MM.yyyy',
+        customMonths: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+        customWeekDays: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"],
+        customOkBTN: 'Фильтр',
+        customClearBTN: 'Очистить фильтр',
+        customCancelBTN: 'Отмена',
+        theme: {
+            theme_color: '#1e98ff'
+        }
+    });
+
+
+    document.querySelector('#datepicker-start-btn').addEventListener("click", function () {
+        datePicker.open();
+    })
+    datePicker.onSelect(() => filterApplying());
+    datePicker.onClear(() => filterApplying());
+
+    const datePickerEnd = MCDatepicker.create({
+        el: '#datepicker-end',
+        bodyType: 'modal',
+        dateFormat: 'dd.MM.yyyy',
+        customMonths: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+        customWeekDays: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"],
+        customOkBTN: 'Фильтр',
+        customClearBTN: 'Очистить фильтр',
+        customCancelBTN: 'Отмена',
+        theme: {
+            theme_color: '#1e98ff'
+        }
+    });
+
+    document.querySelector('#datepicker-end-btn').addEventListener("click", function () {
+        datePickerEnd.open();
+    })
+    datePickerEnd.onSelect(() => filterApplying());
+    datePickerEnd.onClear(() => filterApplying());
+
     const noChoicesText = 'Нет подходящих значений';
     const noResultsText = 'Не найдено подходящих значений';
 
@@ -108,6 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
         itemSelectText: '',
     });
 
+    /*
     const choicesPeriodStart = new Choices('#user-period-start', {
         allowHTML: true,
         searchEnabled: false,
@@ -115,6 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
         noResultsText: noResultsText,
         itemSelectText: '',
     });
+    
 
     const choicesPeriodStop = new Choices('#user-period-stop', {
         allowHTML: true,
@@ -123,6 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
         noResultsText: noResultsText,
         itemSelectText: '',
     });
+    */
 
     function getSelectedValues(select) {
         const selected = [];
@@ -182,6 +239,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const element = document.querySelector(`[data-filter-type="${labelTheme}"][data-filter-item="${value}"]`);
         element.addEventListener("click", function () {
             switch (numPeriod) {
+                /* 
                 case 1:
                     choicesPeriodStart.removeActiveItemsByValue(value);
                     choicesPeriodStart.setChoiceByValue('');
@@ -190,6 +248,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     choicesPeriodStop.removeActiveItemsByValue(value);
                     choicesPeriodStop.setChoiceByValue('');
                     break;
+                */
                 default:
                     choicesStatus.removeActiveItemsByValue(value);
             }
@@ -215,6 +274,7 @@ document.addEventListener("DOMContentLoaded", () => {
         false,
     );
 
+    /*
     choicesPeriodStart.passedElement.element.addEventListener(
         'addItem',
         function (event) {
@@ -232,6 +292,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         false,
     );
+    */
 
     let table;
 

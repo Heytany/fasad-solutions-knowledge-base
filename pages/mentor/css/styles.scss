@@ -15,6 +15,39 @@
         margin: 0;
     }
 
+    &__dates {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 24px;
+        align-items: center;
+    }
+
+    &__picker {
+        font-family: "Open Sans";
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        text-align: left;
+
+        input {
+            width: 150px;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 20px;
+            text-align: center;
+            padding: 8px 12px;
+            border-radius: 32px;
+            border: 1px 0px 0px 0px;
+            border: 1px solid #c5c9d2;
+            background: #f5f5f5;
+            cursor: pointer;
+
+            &:hover {
+                border-color: #171d23;
+            }
+        }
+    }
+
     &__container {
         margin: 0 auto;
         max-width: 1259px;
